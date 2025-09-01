@@ -1,0 +1,28 @@
+POLYNOMIAL CONSTANT FINDER
+========================================
+
+TEST CASE 1:
+Roots provided: 4, Polynomial degree: 2
+Root 1: base 10 value '4' = 4
+Root 2: base 2 value '111' = 7
+Root 3: base 10 value '12' = 12
+Constant coefficient c = 3
+
+TEST CASE 2:
+Roots provided: 10, Polynomial degree: 6
+Root 1: base 6 value '13444211440455345511' = 995085094601491
+Root 2: base 15 value 'aed7015a346d635' = 320923294898495900
+Root 3: base 15 value '6aeeb69631c227c' = 196563650089608567
+Root 4: base 16 value 'e1b5e05623d881f' = 1016509518118225951
+Root 5: base 8 value '316034514573652620673' = 3711974121218449851
+Root 6: base 3 value '2122212201122002221120200210011020220200' = -7658124175476059155
+Root 7: base 3 value '20120221122211000100210021102001201112121' = 8262650902798790847
+Root 8: base 6 value '20220554335330240002224253' = 3384843392724653865
+Root 9: base 12 value '45153788322a1255483' = 7172521759749202275
+Root 10: base 7 value '1101613130313526312514143' = -1357032052919294591
+Constant coefficient c = -9223372036854775808
+
+========================================
+FINAL RESULTS:
+Test case 1: c = 3
+Test case 2: c = -9223372036854775808
