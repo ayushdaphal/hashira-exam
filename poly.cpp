@@ -290,29 +290,14 @@ public:
     }
 
     long long solvePolynomialConstant(const JSONParser::JSONData& data) {
-        std::cout << "Roots provided: " << data.n << ", Polynomial degree: " << (data.k - 1) << "\n";
-        
-        // Convert all points to decimal and display
         std::vector<std::pair<int, long long>> points;
-        
         for (const auto& point : data.points) {
             long long decimal_val = convertBaseToDecimal(point.value, point.base);
             points.push_back({point.x, decimal_val});
-            
-            std::cout << "Root " << point.x << ": base " << point.base 
-                      << " value '" << point.value << "' = " << decimal_val << "\n";
         }
-        
-        // Sort points by x-coordinate
         std::sort(points.begin(), points.end());
-        
-        // Use first k points for the system
         std::vector<std::pair<int, long long>> selected_points(points.begin(), points.begin() + data.k);
-        
         long long constant_c = substitutionMethod(selected_points, data.k - 1);
-        
-        std::cout << "Constant coefficient c = " << constant_c << "\n";
-        
         return constant_c;
     }
 };
@@ -321,33 +306,12 @@ int main() {
     try {
         JSONParser parser;
         PolynomialSolver solver;
-        
-        std::cout << "POLYNOMIAL CONSTANT FINDER\n";
-        std::cout << std::string(40, '=') << "\n";
-        
-        // Test case 1
-        std::cout << "\nTEST CASE 1:\n";
-        try {
-            auto data1 = parser.parseJSON("test_case_1.json");
-            long long constant1 = solver.solvePolynomialConstant(data1);
-            
-            std::cout << "\nTEST CASE 2:\n";
-            auto data2 = parser.parseJSON("test_case_2.json");
-            long long constant2 = solver.solvePolynomialConstant(data2);
-            
-            std::cout << "\n" << std::string(40, '=') << "\n";
-            std::cout << "FINAL RESULTS:\n";
-            std::cout << "Test case 1: c = " << constant1 << "\n";
-            std::cout << "Test case 2: c = " << constant2 << "\n";
-            
-        } catch (const std::exception& e) {
-            std::cout << "Error: " << e.what() << "\n";
-        }
-        
-    } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-        return 1;
-    }
-    
+        auto data1 = parser.parseJSON("test_case_1.json");
+        long long constant1 = solver.solvePolynomialConstant(data1);
+        std::cout << constant1 << std::endl;
+        auto data2 = parser.parseJSON("test_case_2.json");
+        long long constant2 = solver.solvePolynomialConstant(data2);
+        std::cout << constant2 << std::endl;
+    } catch (...) {}
     return 0;
 }
